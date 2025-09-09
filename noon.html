@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب الإنضمام لفريق يوتيوبر - PhantomZ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-header h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #fdbb2d;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .form-header p {
+            font-size: 1.1rem;
+            color: #f8f8f8;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #fdbb2d;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #e94057;
+            outline: none;
+            box-shadow: 0 0 10px rgba(233, 64, 87, 0.5);
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(to right, #e94057, #8a2387);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s;
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+        
+        .hidden-inputs {
+            display: none;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-size: 1rem;
+            color: #ccc;
+            width: 100%;
+        }
+        
+        .email {
+            direction: ltr;
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .form-header h3 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h3>🎥 طلب الإنضمام لفريق يوتيوبر</h3>
+            <p>املأ النموذج التالي للانضمام إلى فريق اليوتيوبر</p>
+        </div>
+        
+        <form action="https://formsubmit.co/phantomzclan617@gmail.com" method="POST">
+            <div class="hidden-inputs">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="New YouTube Application - PhantomZ">
+                <input type="hidden" name="_template" value="table">
+            </div>
+
+            <div class="form-group">
+                <label for="media-discord">اسمك في ديسكورد</label>
+                <input type="text" id="media-discord" name="Discord Name" placeholder="اسمك في ديسكورد" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="media-minecraft">اسمك في ماينكرافت</label>
+                <input type="text" id="media-minecraft" name="Minecraft Name" placeholder="اسمك في ماينكرافت" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="media-channel">رابط قناتك (يوتيوب/تيك توك...)</label>
+                <input type="url" id="media-channel" name="Channel Link" placeholder="https://youtube.com/..." required>
+            </div>
+            
+            <div class="form-group">
+                <label for="media-followers">كم عدد المتابعين عندك؟</label>
+                <textarea id="media-followers" name="Followers Count" placeholder="اذكر عدد المتابعين في كل منصة" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="media-reason">ليش حاب تنضم كـ يوتيوبر في السيرفر؟</label>
+                <textarea id="media-reason" name="Reason for Joining" placeholder="اشرح أسباب رغبتك في الانضمام لفريق اليوتيوبر" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                <span>إرسال الطلب</span> 
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+        
+        <footer>
+            <p>سيتم إرسال طلبك إلى: <span class="email">PhantomZ.Clan@gmail.com</span></p>
+            <p>جميع الحقوق محفوظة &copy; 2023 PhantomZ</p>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // التحقق من صحة النموذج
+            const discordName = document.getElementById('media-discord').value;
+            const minecraftName = document.getElementById('media-minecraft').value;
+            const channelLink = document.getElementById('media-channel').value;
+            
+            if (!discordName || !minecraftName || !channelLink) {
+                alert('يرجى ملء جميع الحقول الإلزامية');
+                return;
+            }
+            
+            // في الواقع، سيتم هنا إرسال البيانات إلى formsubmit.co
+            // ولكننا سنعرض رسالة توضيحية للغرض التعليمي
+            
+            alert('شكرًا لك! تم استلام طلبك بنجاح وسيتم إرساله إلى البريد الإلكتروني.');
+            
+            // إرسال النموذج فعليًا
+            this.submit();
+        });
+    </script>
+</body>
+</html>
