@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قناة Saleh والإعضاء</title>
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #282828;
+            --accent-color: #f1f1f1;
+            --text-color: #333;
+            --light-text: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), #000);
+            color: var(--light-text);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .main-channel {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .channel-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .channel-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+        }
+        
+        .channel-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background-color: var(--accent-color);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .subscribe-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .subscribe-btn:hover {
+            background-color: #cc0000;
+        }
+        
+        .members-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            color: var(--secondary-color);
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .member-card {
+            background-color: var(--accent-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .member-header {
+            background: linear-gradient(135deg, var(--secondary-color), #000);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .member-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .member-rank {
+            background-color: gold;
+            color: #333;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+        
+        .member-info {
+            padding: 1rem;
+        }
+        
+        .member-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .member-link {
+            display: block;
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .member-link:hover {
+            background-color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .channel-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">قناة <span>Ownar</span> والإعضاء</div>
+        <p>أفضل قنوات اليوتيوب في مجال ماين كرافت</p>
+    </header>
+    
+    <div class="container">
+        <section class="main-channel">
+            <div class="channel-header">
+                <img class="channel-avatar" src="clan_pic.png" alt="صورة Saleh">
+                <div class="channel-info">
+                    <h2>PhantomZ</h2>
+                    <p>قناة رئيسية الكلان</p>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">مشترك</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">فيديو</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">مشاهدة</div>
+                </div>
+            </div>
+            
+            <a href="https://www.youtube.com/@PhanTomZ--PH" target="_blank" class="subscribe-btn">اشترك في القناة</a>
+        </section>
+        
+        <section class="members-section">
+            <h2 class="section-title">قنوات الأعضاء</h2>
+            
+            <div class="members-grid">
+                <!-- Member 1 -->
+                <div class="member-card">
+                    <div class="member-header">
+                        <img class="member-avatar" src="3do_pic.png" alt="صورة العضو">
+                        <div>
+                            <h3>عرب جيمرز لاند || AGL</h3>
+                            <span class="member-rank">media ++</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <p>لي نشر محتوي ماين وهيد شوت</p>
+                        <div class="member-stats">
+                            <div>المشتركين: <strong>117</strong></div>
+                            <div>الفيديوهات: <strong>17</strong></div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/@AGL-oy6oz" target="_blank" class="member-link">زيارة القناة</a>
+                </div>
+                
+                <!-- Member 2 -->
+                <div class="member-card">
+                    <div class="member-header">
+                        <img class="member-avatar" src="3do2_pic.png" alt="صورة العضو">
+                        <div>
+                            <h3>MSBOROTO</h3>
+                            <span class="member-rank">media +</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <p>لي نشر محتوي ماين كرافت وروبلوكس</p>
+                        <div class="member-stats">
+                            <div>المشتركين: <strong>44</strong></div>
+                            <div>الفيديوهات: <strong>10</strong></div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/@MSBOROTO" target="_blank" class="member-link">زيارة القناة</a>
+                </div>
+                
+                <!-- Member 3 -->
+                <div class="member-card">
+                    <div class="member-header">
+                        <img class="member-avatar" src="3do3_pic.png" alt="صورة العضو">
+                        <div>
+                            <h3>Voltrix</h3>
+                            <span class="member-rank">Medi +</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <p>لي نشر محتوي ماين كرافت وشروت</p>
+                        <div class="member-stats">
+                            <div>المشتركين: <strong>38</strong></div>
+                            <div>الفيديوهات: <strong>12</strong></div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/channel/UCZdaCvHoNFK748Rr9WcMm4Q" target="_blank" class="member-link">زيارة القناة</a>
+                </div>
+                
+                <!-- Member 4 -->
+                <div class="member-card">
+                    <div class="member-header">
+                        <img class="member-avatar" src="https://via.placeholder.com/50" alt="صورة العضو">
+                        <div>
+                            <h3>SALAHGAMES</h3>
+                            <span class="member-rank">Ownar</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <p>قناة SALAHGAMES للمحتوى المميز والألعاب</p>
+                        <div class="member-stats">
+                            <div>المشتركين: <strong>-1k</strong></div>
+                            <div>الفيديوهات: <strong>-1k</strong></div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/@SALAHGAMESYT" target="_blank" class="member-link">لا تزور الاحسن لك</a>
+                </div>
+                
+                <!-- Member 5 -->
+                <div class="member-card">
+                    <div class="member-header">
+                        <img class="member-avatar" src="3do.png" alt="صورة العضو">
+                        <div>
+                            <h3>MohhamdGamesYT</h3>
+                            <span class="member-rank">YOUTUBE</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <p>لي نشر محتوي ماين كرافت</p>
+                        <div class="member-stats">
+                            <div>المشتركين: <strong>1160</strong></div>
+                            <div>الفيديوهات: <strong>355</strong></div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/@Mohhamd_GamesYT" target="_blank" class="member-link">زيارة القناة</a>
+                </div>
+                
+                <!-- Member 6 -->
+                <div class="member-card">
+                    <div class="member-header">
+                        <img class="member-avatar" src="3do4_pic.png" alt="صورة العضو">
+                        <div>
+                            <h3>Dead-_-Soul</h3>
+                            <span class="member-rank">Media</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <p>لي نشر محتوي ماين كرافت</p>
+                        <div class="member-stats">
+                            <div>المشتركين: <strong>18</strong></div>
+                            <div>الفيديوهات: <strong>2</strong></div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/@MC-Dead-_-Soul" target="_blank" class="member-link">زيارة القناة</a>
+                </div>
+                
+                <!-- Member 7 -->
+                <div class="member-card">
+                    <div class="member-header">
+                        <img class="member-avatar" src="3do5_pic.png" alt="صورة العضو">
+                        <div>
+                            <h3>salar_gaminge </h3>
+                            <span class="member-rank">Media +</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <p>قناة Salar Gaming للمحتوى المميز والألعاب</p>
+                        <div class="member-stats">
+                            <div>المشتركين: <strong>758</strong></div>
+                            <div>الفيديوهات: <strong>54</strong></div>
+                        </div>
+                    </div>
+                    <a href="https://www.youtube.com/@salar_gaminge" target="_blank" class="member-link">زيارة القناة</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2023 قناة Saleh والإعضاء. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        // يمكن إضافة JavaScript هنا لجلب إحصائيات حقيقية من YouTube API
+        // هذا يتطلب مفتاح API من Google
+        document.addEventListener('DOMContentLoaded', function() {
+            // يمكنك إضافة أكواد JavaScript هنا لتحديث الإحصائيات ديناميكيًا
+            console.log('تم تحميل الصفحة');
+        });
+    </script>
+</body>
+</html>
