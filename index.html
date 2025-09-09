@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قناة Saleh والإعضاء</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #ff0000;
@@ -26,6 +27,68 @@
             line-height: 1.6;
         }
         
+        /* زر الانتقال الجانبي */
+        .floating-button {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        
+        .nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, #e94057, #8a2387);
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            height: 180px;
+        }
+        
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #8a2387, #e94057);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        .nav-button:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-button:hover {
+            transform: translateX(5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .nav-button i {
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-button:hover i {
+            transform: translateY(5px);
+        }
+        
+        /* التصميم الأصلي للصفحة */
         header {
             background: linear-gradient(135deg, var(--secondary-color), #000);
             color: var(--light-text);
@@ -220,6 +283,16 @@
         }
         
         @media (max-width: 768px) {
+            .floating-button {
+                left: 10px;
+            }
+            
+            .nav-button {
+                height: 150px;
+                padding: 12px 15px;
+                font-size: 1rem;
+            }
+            
             .channel-header {
                 flex-direction: column;
                 text-align: center;
@@ -237,6 +310,14 @@
     </style>
 </head>
 <body>
+    <!-- زر الانتقال الجانبي -->
+    <div class="floating-button">
+        <a href="noon.html" class="nav-button">
+            <span>تقديم يوتيوبر</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+    
     <header>
         <div class="logo">قناة <span>Ownar</span> والإعضاء</div>
         <p>أفضل قنوات اليوتيوب في مجال ماين كرافت</p>
@@ -318,7 +399,7 @@
                         <img class="member-avatar" src="3do3_pic.png" alt="صورة العضو">
                         <div>
                             <h3>Voltrix</h3>
-                            <span class="member-rank">Medi +</span>
+                            <span class="member-rank">Media +</span>
                         </div>
                     </div>
                     <div class="member-info">
@@ -334,7 +415,7 @@
                 <!-- Member 4 -->
                 <div class="member-card">
                     <div class="member-header">
-                        <img class="member-avatar" src="https://via.placeholder.com/50" alt="صورة العضو">
+                        <img class="member-avatar" src="lol.png" alt="صورة العضو">
                         <div>
                             <h3>SALAHGAMES</h3>
                             <span class="member-rank">Ownar</span>
@@ -343,11 +424,11 @@
                     <div class="member-info">
                         <p>قناة SALAHGAMES للمحتوى المميز والألعاب</p>
                         <div class="member-stats">
-                            <div>المشتركين: <strong>-1k</strong></div>
-                            <div>الفيديوهات: <strong>-1k</strong></div>
+                            <div>المشتركين: <strong>10</strong></div>
+                            <div>الفيديوهات: <strong>3</strong></div>
                         </div>
                     </div>
-                    <a href="https://www.youtube.com/@SALAHGAMESYT" target="_blank" class="member-link">لا تزور الاحسن لك</a>
+                    <a href="https://www.youtube.com/@SALAHGAMESYT" target="_blank" class="member-link">زيارة القناة</a>
                 </div>
                 
                 <!-- Member 5 -->
@@ -415,10 +496,21 @@
     </footer>
 
     <script>
+        // تأثير النقر على الزر الجانبي
+        document.querySelector('.nav-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // تأثير النقر على الزر
+            this.style.transform = 'translateX(5px) scale(0.95)';
+            
+            // الانتقال إلى الصفحة الأخرى بعد تأخير بسيط
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 200);
+        });
+        
         // يمكن إضافة JavaScript هنا لجلب إحصائيات حقيقية من YouTube API
-        // هذا يتطلب مفتاح API من Google
         document.addEventListener('DOMContentLoaded', function() {
-            // يمكنك إضافة أكواد JavaScript هنا لتحديث الإحصائيات ديناميكيًا
             console.log('تم تحميل الصفحة');
         });
     </script>
